@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import LogOutButton from "./components/LogOutButton";
 
 export default function Home() {
   return (
@@ -18,7 +19,10 @@ export default function Home() {
           Welcome to the Admin Panel website
         </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <LogOutButton />
+
+        <div className="flex flex-col gap-4 items-center">
+          <p className="text-blue-500"> Are you already logged in?</p>
           <Link
             href="/admin"
             className="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm sm:text-base hover:bg-blue-600 transition duration-300"

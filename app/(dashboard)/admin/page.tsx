@@ -2,21 +2,35 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation"; // Import useRouter
+import { useRouter } from "next/navigation";
 import UserManagement from "../../components/UserManagement";
 import UserModal from "../../components/UserModal";
 import { User } from "@/app/interfaces/UserInterface";
+import { toast } from "react-toastify";
 
 const Admin = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isEditMode, setEditMode] = useState(false);
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
 
   useEffect(() => {
     fetchUsers();
   }, []);
+
+  useEffect(() => {
+    const user = localStorage.getItem("isAuthenticated");
+    if (!user) {
+      toast.warn("You are not authenticated!", {
+        position: "top-center",
+        autoClose: 2000,
+      });
+      setTimeout(() => {
+        router.push("/login");
+      }, 1000);
+    }
+  }, [router]);
 
   const fetchUsers = async () => {
     try {
@@ -44,7 +58,7 @@ const Admin = () => {
     <div className="min-h-screen bg-gray-100 p-4 flex flex-col items-center overflow-hidden">
       <button
         className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4 hover:bg-blue-600 transition duration-300"
-        onClick={() => router.push("/")} // Navigate to home or previous page
+        onClick={() => router.push("/")}
       >
         Return Back
       </button>
