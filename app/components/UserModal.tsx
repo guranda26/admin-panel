@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-
-interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  age: number;
-  isActive: boolean;
-}
+import { User } from "../interfaces/UserInterface";
 
 const UserModal: React.FC<{
   isOpen: boolean;
