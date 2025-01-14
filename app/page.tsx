@@ -35,7 +35,7 @@ export default function Home() {
 
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-sm">
         <p className="text-gray-500">
-          &copy; {new Date().getFullYear()} Admin Panel. All rights reserved.
+          &copy; 2025 Admin Panel. All rights reserved.
         </p>
       </footer>
     </div>

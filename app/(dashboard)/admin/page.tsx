@@ -47,7 +47,7 @@ const Admin = () => {
   const handleDeleteUser = (id: number) => {
     const updatedUsers = users.filter((user) => user.id !== id);
     setUsers(updatedUsers);
-    setFilteredUsers(updatedUsers); // Update filtered users
+    setFilteredUsers(updatedUsers);
   };
 
   const handleAddOrEditUser = (user: User) => {
