@@ -5,6 +5,9 @@ import LogOutButton from "./components/LogOutButton";
 export default function Home() {
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-8 font-sans">
+      <header className="ml-auto">
+        <LogOutButton />
+      </header>
       <main className="flex flex-col gap-8 row-start-2 items-center text-center">
         <Image
           className="dark:invert"
@@ -18,8 +21,6 @@ export default function Home() {
         <h1 className="text-blue-500 font-bold text-xl sm:text-2xl">
           Welcome to the Admin Panel website
         </h1>
-
-        <LogOutButton />
 
         <div className="flex flex-col gap-4 items-center">
           <p className="text-blue-500"> Are you already logged in?</p>

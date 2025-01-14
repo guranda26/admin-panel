@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Admin Panel Application
+
+- The Admin Panel application is a responsive and accessible user management tool. It includes features for viewing, searching, and filtering user details, along with authentication and secure access control.
+
+---
+
+## Features
+
+### **Authentication**
+
+- Admin must log in using predefined credentials.
+- Valid credentials redirect the user to the main page.
+- Invalid credentials will display an error message without redirecting.
+- Logged-out users are automatically redirected to the login page.
+
+### **Search & Filter**
+
+- Search functionality supports filtering users by:
+  - **First Name**
+  - **Last Name**
+  - **Full Name**
+
+### **User Management**
+
+- View a list of users retrieved from a mocked JSON file via **Axios**.
+
+- Perform **CRUD** operations:
+  - Add New Users: Opens a modal to add user details.
+  - Edit Existing Users: Update user details in a modal.
+  - Delete Users: Remove users from the list with a confirmation prompt.
+
+---
+
+## Technologies Used
+
+- **TypeScript**
+- **React**
+- **Tailwind CSS**
+- **Material UI**
+- **Axios**
 
 ## Getting Started
 
-First, run the development server:
+## Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Node.js (v16 or later)**
+**npm or yarn (latest version)**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Install Dependencies**:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```
 
-## Learn More
+2. **Clone the Repository**:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://frontend-dev-course-2024-gitlab.codelx.dev/leverx/lemonjava-guranda.git
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   cd admin-panel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```
 
-## Deploy on Vercel
+3. **Start the Development Server**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```npm run dev
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```
+
+---
+
+**Usage**
+
+#### **Open the application in your browser:**
+
+http://localhost:3000
+
+#### **Log in with the following credentials**
+
+- **Email**: `admin@example.com`
+- **Password**: `testpass123`
