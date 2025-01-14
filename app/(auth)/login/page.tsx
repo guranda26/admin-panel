@@ -51,7 +51,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+    <section className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
         <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
         <div className="flex flex-col gap-3">
@@ -82,7 +82,7 @@ const LoginPage = () => {
         </div>
       </div>
       <ToastContainer />
-    </div>
+    </section>
   );
 };
 

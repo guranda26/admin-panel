@@ -4,7 +4,7 @@ import LogOutButton from "./components/LogOutButton";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-8 font-sans">
+    <section className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-8 font-sans">
       <header className="ml-auto">
         <LogOutButton />
       </header>
@@ -14,7 +14,7 @@ export default function Home() {
           src="/logo.png"
           alt="Admin Panel Logo"
           width={180}
-          height={38}
+          height={40}
           priority
         />
 
@@ -38,6 +38,6 @@ export default function Home() {
           &copy; 2025 Admin Panel. All rights reserved.
         </p>
       </footer>
-    </div>
+    </section>
   );
 }

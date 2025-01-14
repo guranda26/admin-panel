@@ -74,7 +74,7 @@ const Admin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4 flex flex-col items-center overflow-hidden">
+    <section className="min-h-screen bg-gray-100 p-4 flex flex-col items-center overflow-hidden">
       <button
         className="bg-blue-500 text-white px-4 py-2 rounded-lg mb-4 hover:bg-blue-600 transition duration-300"
         onClick={() => router.push("/")}
@@ -110,7 +110,7 @@ const Admin = () => {
         onSave={handleAddOrEditUser}
         user={selectedUser}
       />
-    </div>
+    </section>
   );
 };
 
