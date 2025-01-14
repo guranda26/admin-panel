@@ -10,6 +10,8 @@ import { toast } from "react-toastify";
 
 const Admin = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [isModalOpen, setModalOpen] = useState(false);
   const [isEditMode, setEditMode] = useState(false);
@@ -36,22 +38,39 @@ const Admin = () => {
     try {
       const response = await axios.get("https://dummyjson.com/users");
       setUsers(response.data.users);
+      setFilteredUsers(response.data.users);
     } catch (error) {
       console.error("Error fetching users:", error);
     }
   };
 
   const handleDeleteUser = (id: number) => {
-    setUsers(users.filter((user) => user.id !== id));
+    const updatedUsers = users.filter((user) => user.id !== id);
+    setUsers(updatedUsers);
+    setFilteredUsers(updatedUsers); // Update filtered users
   };
 
   const handleAddOrEditUser = (user: User) => {
+    let updatedUsers;
     if (isEditMode && selectedUser) {
-      setUsers(users.map((u) => (u.id === user.id ? user : u)));
+      updatedUsers = users.map((u) => (u.id === user.id ? user : u));
     } else {
-      setUsers([...users, { ...user, id: Date.now() }]);
+      updatedUsers = [...users, { ...user, id: Date.now() }];
     }
+    setUsers(updatedUsers);
+    setFilteredUsers(updatedUsers);
     setModalOpen(false);
+  };
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setFilteredUsers(
+      users.filter((user) =>
+        `${user.firstName} ${user.lastName}`
+          .toLowerCase()
+          .includes(query.toLowerCase())
+      )
+    );
   };
 
   return (
@@ -62,9 +81,16 @@ const Admin = () => {
       >
         Return Back
       </button>
+      <input
+        type="text"
+        placeholder="Search users..."
+        value={searchQuery}
+        onChange={(e) => handleSearch(e.target.value)}
+        className="w-full max-w-4xl p-2 mb-4 border border-gray-300 rounded-lg"
+      />
       <div className="w-full max-w-4xl bg-white shadow-md rounded-lg p-4 overflow-x-auto">
         <UserManagement
-          users={users}
+          users={filteredUsers}
           onEdit={(user) => {
             setSelectedUser(user);
             setEditMode(true);
